@@ -59,6 +59,18 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 Interactive docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
+### Or run with Docker
+
+```bash
+docker build -t message-service .
+docker run --rm -p 8012:8012 \
+  -e ADMIN_SECRET_KEY=change-me-to-a-strong-secret \
+  -e DATABASE_URL=sqlite:///./whatsapp.db \
+  message-service
+```
+
+Service: [http://127.0.0.1:8012](http://127.0.0.1:8012) · Docs: [http://127.0.0.1:8012/docs](http://127.0.0.1:8012/docs)
+
 ## API examples (curl)
 
 ### Health check
